@@ -57,6 +57,20 @@
 > 그 결과로 리턴하는 객체들을 기본적으로 싱글톤 으로 관리한다.
 
 - @Bean
-- 
+> - SpringContainer에 Bean을 등록하도록 하는 어노테이션
+> - 개발자가 직접 제어 불가능한 외부 라이브러리를 Bean으로 만들려할때 사용한다.
+
+- @Interceptor
+> - Controller의 Handler를 호출하기 전과 후에 요청과 응답을 참조하거나 가공할 수 있는 필터
+> - 서버에 들어온 Request가 Handler로 도달하기 전에 낚아채서 개발자가 원하는 추가 작업을 한 후 핸들러로 보낼 수 있도록 하는것.
+> - Dispatcher Servlet과 Controller 사이에서 동작
+
+- @RequestMapping
+
+> 특정 uri로 요청을 보내면 Controller 에서 어떠한 방식으로 처리할지 정의한다. 
+> 이때 들어온 요청을 특정 메서드와 매핑하기위해 사용하는것이 @RequestMapping 이다.
+>> - @RequestMapping 에서 가장 많이 사용하는 부분은 value 와 method 이다.
+>> - value는 요청받을 url을 설정하고, method는 어떤 요청으로 받을지 정의한다.(GET,POST,PUT,....)
+>> - EX) @RequestMapping(value="/hello" , method= RequestMethod.GET)
 
 
