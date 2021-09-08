@@ -32,16 +32,31 @@
 >> @MVC 컨트롤러는 Controller로 만든다.
 >> 컨트롤러 역할을 담당하는 메소드의 파라미터 개수와 타입, 리턴 타입등을 자유롭게 결정할수 있다.
 >> 주로 View를 반환하기 위해 사용
+![다운로드 (6)](https://user-images.githubusercontent.com/32286904/132447338-53b5e24c-5714-4c3c-aebe-bd06821f2ca2.png)
 
-           request
-Client ------------------->  Dispatcher  --------------->  HandlerMapping
-       <------------------    Servlet                            |
-            response                                         Controller
-                                                                 |
-                                         <--------------        View
+- @Service
 
+>서비스 레이어, 비즈니스 로직을 가진 클래스
+>> - Client가 Request를 보낸다.
+>> - Request URL에 알맞은 Controller가 수신한다.
+>> - Controller는 넘어온 요청을 처리하기 위해 Service를 호출한다.
+>> - Service는 알맞은 정보를 가공하여 Controller에게 데이터를 넘긴다.
+>> - *Service 가 Client의 요청에 대한 정보를 제공하기 위한 처리를 하는것을 '비즈니스 로직'을 수행한다고 한다.*
+>> - Controller는 Service의 결과물을 Client 에게 전달해준다.
+>>> Service Interface 만들기, 구현하기
+>>> 구현 클래스에 꼭 @Service 어노테이션을 붙혀야 스프링에서 Service 역할을 하는 클래스라고 인지한다.
+>>> Interface를 만들 때 자신이 원하는 값을 입력받고, 원하는 값을 리턴 할 함수를 선언해주고    
+>>> Class를 만들어 Implements 해서 선언해둔 함수를 구현해 원하는 방식대로 동작하도록 설정
+>>> *@Controller가 붙은 Class에서 @Autowired(어떤 컴포넌트를 스프링에 자동 등록할거다) 를 통해서 해당 서비스를 스프링에 등록한다.*
 
+- @Configuration
+> - 설정파일을 만들기 위한 어노테이션 or Bean을 등록하기 위한 어노테이션이다.
+> - 1개 이상의 Bean을 제공하는 경우 반드시 @Configuration을 명시해 주어야 한다.
+> - 스프링 설정 클래스를 선언하는 어노테이션
+> - 이때 설정파일중에 @Bean이 붙어있는 메소드들을 AnnotationConfigApplicationContext는 자동으로 실행하여,
+> 그 결과로 리턴하는 객체들을 기본적으로 싱글톤 으로 관리한다.
 
-
+- @Bean
+- 
 
 
